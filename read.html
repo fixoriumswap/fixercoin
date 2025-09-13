@@ -8,38 +8,33 @@
     :root{--small-font:12px}
     html,body{height:100%;margin:0}
     body{display:flex;align-items:center;justify-content:center;background:#f7f7f7;font-family:Arial,Helvetica,sans-serif}
-    .card{background:#ffffff;padding:28px;border-radius:10px;box-shadow:0 6px 18px rgba(0,0,0,0.08);width:720px;max-width:95%;text-align:center;text-transform:uppercase;font-size:var(--small-font)}
-    h1{margin:0 0 12px;font-size:20px;letter-spacing:1px}
+    .main-card{background:#ffffff;padding:32px;border-radius:10px;box-shadow:0 6px 18px rgba(0,0,0,0.08);width:800px;max-width:95%;text-align:center;text-transform:uppercase;font-size:var(--small-font)}
+    h1{margin:0 0 24px;font-size:22px;letter-spacing:1px}
+    h2,h3,h4{margin:14px 0 12px;font-size:13px;letter-spacing:0.5px}
     .back{position:absolute;left:18px;top:18px;font-size:18px;text-decoration:none;color:#222}
-    .steps{margin:10px 0 18px;padding:0;list-style:none}
-    .steps li{margin:6px 0}
-    .meta{margin:10px 0 18px}
-    .meta p{margin:4px 0}
-    .tokenomics{display:flex;gap:18px;align-items:center;justify-content:center;flex-wrap:wrap}
-    .pie-wrap{width:260px}
-    .legend{font-size:11px;text-align:left}
-    .legend-item{display:flex;gap:8px;align-items:center;margin:6px 0}
+    ul{list-style:disc inside;text-align:left;margin:8px 0 14px;padding-left:20px;font-size:12px}
+    .legend ul{list-style:none;padding:0;text-align:left}
+    .legend li{margin:6px 0;display:flex;align-items:center;gap:8px}
     .dot{width:14px;height:14px;border-radius:50%;display:inline-block}
-    .contract{word-break:break-all;font-size:11px;margin-top:10px}
-    .social{margin-top:16px}
-    .social a{display:inline-block;margin:0 8px;text-decoration:none;font-size:11px}
-    footer{margin-top:16px;font-size:10px;color:#666}
-    /* accessible focus styles */
+    .contract{word-break:break-all;font-size:11px}
+    .social ul{list-style:none;padding:0;display:flex;gap:16px;justify-content:center}
+    .social a{text-decoration:none;font-size:11px}
+    footer{margin-top:20px;font-size:10px;color:#666}
     a:focus{outline:3px solid #88a;outline-offset:2px}
+
+    /* card design for sections */
+    .section-card{background:#fafafa;border:1px solid #ddd;border-radius:8px;padding:16px;margin:16px 0;text-align:left}
+    .section-card h2,.section-card h3,.section-card h4{text-align:center}
   </style>
 </head>
 <body>
   <a class="back" href="#" role="button" aria-label="Go back" onclick="history.back();return false">&larr; BACK</a>
-  <main class="card" role="main" aria-labelledby="wp-title">
-   <p></p>
-    <br>
-    <p></p
-         <br>
+  <main class="main-card" role="main" aria-labelledby="wp-title">
     <h1 id="wp-title">FIXORIUM WHITEPAPER</h1>
 
-    <section aria-labelledby="launchtitle">
-      <h2 id="launchtitle" style="font-size:12px;margin:6px 0">LAUNCH ROADMAP</h2>
-      <ul class="steps" aria-label="launch steps">
+    <section class="section-card" aria-labelledby="launchtitle">
+      <h2 id="launchtitle">LAUNCH ROADMAP</h2>
+      <ul>
         <li>STEP 1 — LAUNCHED FIXERCOIN</li>
         <li>STEP 2 — LAUNCHED FIXORIUM WALLET</li>
         <li>STEP 3 — LAUNCHED FIXORIUM AUTO TRADE BOT SERVICE</li>
@@ -47,55 +42,57 @@
       </ul>
     </section>
 
-    <section class="meta" aria-labelledby="tok-title">
-      <h2 id="tok-title" style="font-size:12px;margin:6px 0">FIXERCOIN TOKENOMICS</h2>
-<ul>
-     <li> <p>NAME: FIXERCOIN</p></li>
-     <li> <p>TICKER: FIXERCOIN</p></li>
-     <li> <p>DECIMALS: 6</p></li>
-   <li>   <p>NETWORK: SOLANA</p></li>
-   <li>   <p>CONTRACT ID: <span class="contract" aria-label="token contract id">H4qKn8FMFha8jJuj8xMryMqRhH3h7GjLuxw7TVixpump</span></p></li>
-    <li>  <p>TOTAL SUPPLY: 1,000,000,000</p></li></ul>
+    <section class="section-card meta" aria-labelledby="tok-title">
+      <h2 id="tok-title">FIXERCOIN TOKENOMICS</h2>
+      <ul>
+        <li>NAME: FIXERCOIN</li>
+        <li>TICKER: FIXERCOIN</li>
+        <li>DECIMALS: 6</li>
+        <li>NETWORK: SOLANA</li>
+        <li>CONTRACT ID: <span class="contract">H4qKn8FMFha8jJuj8xMryMqRhH3h7GjLuxw7TVixpump</span></li>
+        <li>TOTAL SUPPLY: 1,000,000,000</li>
+      </ul>
     </section>
 
-    <section class="tokenomics" aria-labelledby="pie-title">
-      <div class="pie-wrap" role="img" aria-labelledby="pie-title pie-desc">
-        <h3 id="pie-title" style="font-size:12px;margin:6px 0">DISTRIBUTION</h3>
-        <!-- SVG PIE CHART (70% / 20% / 10%) -->
+    <section class="section-card tokenomics" aria-labelledby="pie-title">
+      <h3 id="pie-title">DISTRIBUTION</h3>
+      <div style="display:flex;flex-wrap:wrap;gap:20px;justify-content:center;align-items:center">
         <svg viewBox="0 0 32 32" width="220" height="220" aria-hidden="false" role="img" aria-labelledby="pie-desc">
           <title id="pie-desc">Token distribution pie chart: public sale 70%, vested 20%, community 10%</title>
-          <!-- background circle -->
           <circle r="16" cx="16" cy="16" fill="#f3f3f3" />
-          <!-- slice: PUBLIC SALE 70% (252deg) -->
           <path d="M16 0 A16 16 0 0 1 30.84 9.56 L16 16 Z" fill="#2b8cff"></path>
-          <!-- slice: VESTED 20% (72deg) -->
           <path d="M30.84 9.56 A16 16 0 0 1 22.78 30.58 L16 16 Z" fill="#ffb14b"></path>
-          <!-- slice: COMMUNITY 10% (36deg) -->
           <path d="M22.78 30.58 A16 16 0 0 1 16 0 L16 16 Z" fill="#8ce58c"></path>
-          <!-- center cut for donut appearance -->
           <circle r="8" cx="16" cy="16" fill="#fff"/>
         </svg>
-      </div>
-
-      <div class="legend" aria-hidden="false">
-        <div class="legend-item"><span class="dot" style="background:#2b8cff"></span>PUBLIC SALE — 70% (700,000,000)</div>
-        <div class="legend-item"><span class="dot" style="background:#ffb14b"></span>VESTED — 20% (200,000,000) — 20% IN TWO YEAR</div>
-        <div class="legend-item"><span class="dot" style="background:#8ce58c"></span>COMMUNITY &amp; DEVELOPMENT — 10% (100,000,000)</div>
+        <div class="legend">
+          <ul>
+            <li><span class="dot" style="background:#2b8cff"></span> PUBLIC SALE — 70% (700,000,000)</li>
+            <li><span class="dot" style="background:#ffb14b"></span> VESTED — 20% (200,000,000) — 20% IN TWO YEAR</li>
+            <li><span class="dot" style="background:#8ce58c"></span> COMMUNITY &amp; DEVELOPMENT — 10% (100,000,000)</li>
+          </ul>
+        </div>
       </div>
     </section>
 
-    <section aria-labelledby="notes" style="margin-top:14px">
-      <h4 id="notes" style="font-size:11px;margin:6px 0">NOTES</h4>
-      <p style="font-size:11px">ALL FIGURES ARE BASED ON TOTAL SUPPLY. VESTED TOKENS ARE SCHEDULED TO RELEASE OVER A 2-YEAR PERIOD UNLESS OTHERWISE SPECIFIED IN A SEPARATE AGREEMENT.</p>
+    <section class="section-card" aria-labelledby="notes">
+      <h4 id="notes">NOTES</h4>
+      <ul>
+        <li>ALL FIGURES ARE BASED ON TOTAL SUPPLY.</li>
+        <li>VESTED TOKENS ARE SCHEDULED TO RELEASE OVER A 2-YEAR PERIOD UNLESS OTHERWISE SPECIFIED.</li>
+        <li>PUBLIC SALE: 70% (700,000,000)</li>
+        <li>VESTED: 20% (200,000,000)</li>
+        <li>COMMUNITY &amp; DEVELOPMENT: 10% (100,000,000)</li>
+      </ul>
     </section>
 
-    <section class="social" aria-labelledby="social-title">
-      <h4 id="social-title" style="font-size:11px;margin:6px 0">CONTACT &amp; SOCIAL</h4>
-      <div>
-        <a href="https://t.me/fixorium" target="_blank" rel="noopener" aria-label="telegram">TELEGRAM</a>
-        <a href="https://twitter.com/fixorium" target="_blank" rel="noopener" aria-label="twitter">TWITTER</a>
-        <a href="mailto:contact@fixorium.example" aria-label="email">EMAIL</a>
-      </div>
+    <section class="section-card social" aria-labelledby="social-title">
+      <h4 id="social-title">CONTACT &amp; SOCIAL</h4>
+      <ul>
+        <li><a href="https://t.me/fixorium" target="_blank" rel="noopener">TELEGRAM</a></li>
+        <li><a href="https://twitter.com/fixorium" target="_blank" rel="noopener">TWITTER</a></li>
+        <li><a href="mailto:contact@fixorium.example">EMAIL</a></li>
+      </ul>
     </section>
 
     <footer>
